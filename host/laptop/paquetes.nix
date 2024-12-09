@@ -14,7 +14,6 @@
     rofi
     zsh
     bat
-    nerdfonts
     lazygit
     dunst
     fish

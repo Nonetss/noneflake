@@ -110,9 +110,11 @@
 
   # fuentes
 
+
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FantasqueSansMono" "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
-    noto-fonts-color-emoji
+    nerd-fonts.fantasque-sans-mono
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.symbols-only
   ];
 
 
