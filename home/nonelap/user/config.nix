@@ -3,7 +3,7 @@ let
 in
 {
   home.file = {
-    ".config/nvim".source = "${configDir}/nvim-config";
+    ".config/nvim".source = "${configDir}/nvim";
   };
 }
 
