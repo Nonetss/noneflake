@@ -41,7 +41,7 @@
         ${username} = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs-stable { inherit system; }; # Definición explícita de pkgs
           modules = [
-            ./home.nix
+            ./home/${username}/default.nix
           ];
           # La sección `home` no es necesaria; eliminada para evitar el error
         };

@@ -2,6 +2,6 @@ let configDir = ../config;
 in
 {
   home.file = {
-    ".config/hypr".source = "${configDir}/hypr";
+    ".config/nvim".source = "${configDir}/nvim";
   };
 }
