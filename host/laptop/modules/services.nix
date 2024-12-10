@@ -9,12 +9,12 @@
 
     xserver = {
       enable = true;
-      layout = "us, ru, ge";
-      xkbOptions = "grp:alt_shift_toggle, caps:swapescape";
-
+      xkb = {
+        layout = "us";
+        variant = "alt-intl";
+      };
       displayManager = {
-        sddm.enable = true;
-        sddm.theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
+        lightdm.enable = true;
       };
     };
   };
