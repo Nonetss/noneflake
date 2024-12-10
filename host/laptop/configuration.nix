@@ -8,8 +8,24 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./hyprland.nix
-      ./paquetes.nix
+      ./modules/fonts.nix
+      ./modules/hardware.nix
+      ./modules/hyprland.nix
+      ./modules/internationalisation.nix
+      ./modules/misc.nix
+      ./modules/networking.nix
+      ./modules/nixsettings.nix
+      ./modules/packages.nix
+      ./modules/polkit.nix
+      ./modules/programs.nix
+      ./modules/security.nix
+      ./modules/services.nix
+      ./modules/sound.nix
+      ./modules/time.nix
+      ./modules/theme.nix
+      ./modules/users.nix
+      ./modules/virtualisation.nix
+
     ];
 
   # Bootloader.
@@ -33,24 +49,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Madrid";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "es_ES.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "es_ES.UTF-8";
-    LC_IDENTIFICATION = "es_ES.UTF-8";
-    LC_MEASUREMENT = "es_ES.UTF-8";
-    LC_MONETARY = "es_ES.UTF-8";
-    LC_NAME = "es_ES.UTF-8";
-    LC_NUMERIC = "es_ES.UTF-8";
-    LC_PAPER = "es_ES.UTF-8";
-    LC_TELEPHONE = "es_ES.UTF-8";
-    LC_TIME = "es_ES.UTF-8";
-  };
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -58,11 +56,6 @@
   services.xserver.displayManager.lightdm.enable = true;
 
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "alt-intl";
-  };
 
   # Configure console keymap
   console.keyMap = "dvorak";
@@ -70,34 +63,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nonete = {
-    isNormalUser = true;
-    description = "nonete";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
-  };
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -108,21 +76,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
-  # fuentes
-
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.fantasque-sans-mono
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.symbols-only
-  ];
 
 
 
 
 
-  # Instalamos las flakes:
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 
 
 
