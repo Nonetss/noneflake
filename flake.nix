@@ -30,15 +30,6 @@
         modules = [
           ./host/laptop/configuration.nix
           lanzaboote.nixosModules.lanzaboote
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.nonete = import ./home/default.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-          }
         ];
         specialArgs = {
           inherit pkgs-unstable;

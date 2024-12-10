@@ -23,12 +23,13 @@
       ./modules/theme.nix
       ./modules/users.nix
       ./modules/virtualisation.nix
-
     ];
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
 
   programs.waybar.enable = true;
 
@@ -76,6 +77,8 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+
 
 
 
