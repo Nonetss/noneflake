@@ -32,6 +32,7 @@
 
 
   programs.waybar.enable = true;
+  
 
   nixpkgs.config.allowImportFromDerivation = true;
 

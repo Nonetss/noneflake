@@ -9,4 +9,6 @@
   home.username = "nonete";
   home.homeDirectory = "/home/nonete";
   home.stateVersion = "24.11";
+  home.enableNixpkgsReleaseCheck = false;
+
 }

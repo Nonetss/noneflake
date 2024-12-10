@@ -30,6 +30,7 @@
     xfce.thunar
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
+    home-manager
 
     # Herramientas relacionadas con Qt
     libsForQt5.qt5.qtquickcontrols2
