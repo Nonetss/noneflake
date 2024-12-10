@@ -5,8 +5,11 @@
     bat
     btop
     eza
+    lsd
     fzf
     git
+    alacritty
+    lazygit
     gnumake
     lm_sensors
     libsForQt5.qt5.qtquickcontrols2

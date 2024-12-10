@@ -1,11 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-  fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
-    font-awesome
-    jetbrains-mono
-
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
+    nerd-fonts.fantasque-sans-mono
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.symbols-only
+    noto-fonts-color-emoji
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }
