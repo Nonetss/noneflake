@@ -2,32 +2,43 @@
 
 {
   environment.systemPackages = with pkgs; [
+    # Herramientas de línea de comandos generales
     bat
-    btop
-    eza
-    lsd
     fzf
+    zoxide
+    lsd
+    ranger
+
+    # Herramientas para gestión del sistema y monitorización
+    btop
+    wl-clipboard
+
+    # Herramientas de desarrollo
     git
-    alacritty
     lazygit
+    python314
+    nodejs_23
     gnumake
-    lm_sensors
-    libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qt5.qtgraphicaleffects
-    libsForQt5.qt5.qtsvg
-    neofetch
-    neovim
-    ripgrep
-    tldr
-    unzip
+    gcc
     openssl
-    openssl.dev
-    pkg-config
-    wget
+
+    # Herramientas de personalización y entorno gráfico
+    dunst
+    neofetch
+    alacritty
     xfce.thunar
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
+
+    # Herramientas relacionadas con Qt
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtsvg
+
+    # Utilidades adicionales
+    unzip
     zip
-    zoxide
+    wget
+    neovim
   ];
 }
