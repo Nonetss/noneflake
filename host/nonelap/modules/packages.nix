@@ -16,6 +16,7 @@
     # Herramientas de desarrollo
     git
     lazygit
+    zsh
     python314
     nodejs_23
     gnumake
