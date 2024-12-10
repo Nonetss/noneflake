@@ -1,8 +1,9 @@
 { config, pkgs, pkgs-unstable, lib, inputs, ... }:
 
 {
+
   imports = [
-    ./user
+    ./user/config.nix
   ];
 
   home.username = "nonete";

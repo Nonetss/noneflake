@@ -20,10 +20,6 @@
 
   nixpkgs.config.allowImportFromDerivation = true;
 
-  programs.home-manager.enable = true;
-  home-manager.useGlobalPkgs = true; # Opcional
-  home-manager.useUserPackages = true;
-
 
 
 

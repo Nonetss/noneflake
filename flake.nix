@@ -6,20 +6,45 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     systems.url = "github:nix-systems/default-linux";
     hardware.url = "github:nixos/nixos-hardware";
-  };
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = { self, nixpkgs, ... }: {
-
-    nixosConfigurations = {
-      nonelap = nixpkgs.lib.nixosSystem
-        {
-          system = "x86_64-linux";
-          modules = [
-            ./host/laptop/configuration.nix
-          ];
-        };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.3.0";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
+
+
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, lanzaboote, ... }@inputs:
+    let
+      lib = nixpkgs.lib;
+      system = "x86_64-linux";
+      pkgs = nixpkgs-stable.legacyPackages.${system};
+      pkgs-unstable = nixpkgs.legacyPackages.${system};
+    in
+    {
+      nixosConfigurations.nonelap = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./host/laptop/configuration.nix
+          lanzaboote.nixosModules.lanzaboote
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.nonete = import ./home/default.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
+        ];
+        specialArgs = {
+          inherit pkgs-unstable;
+        };
+      };
+
+    };
 }
 

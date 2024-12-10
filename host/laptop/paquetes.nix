@@ -13,6 +13,7 @@
     tmux
     rofi
     zsh
+    home-manager
     bat
     lazygit
     dunst
