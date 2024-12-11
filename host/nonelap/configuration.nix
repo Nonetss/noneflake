@@ -30,9 +30,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Configurar el soporte USB
+  hardware.enableAllFirmware = true; # Asegura que se carguen todos los firmwares necesarios
+  boot.kernelModules = [ "usbcore" "usb_storage" ]; # Carga los módulos necesarios para USB
 
-  programs.waybar.enable = true;
-  
+
+  # Habilitar udev para la detección automática de dispositivos
+  services.udev.enable = true;
 
   nixpkgs.config.allowImportFromDerivation = true;
 
@@ -78,6 +82,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
 
 
 

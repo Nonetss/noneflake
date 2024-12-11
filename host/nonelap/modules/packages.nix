@@ -22,6 +22,12 @@
     gnumake
     gcc
     openssl
+    gparted
+
+
+    gnome-disk-utility
+    qbittorrent
+    nautilus
 
     # Herramientas de personalización y entorno gráfico
     dunst

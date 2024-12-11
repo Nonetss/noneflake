@@ -39,10 +39,15 @@
       };
       homeConfigurations = {
         ${username} = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs-stable { inherit system; }; # Definición explícita de pkgs
+          inherit pkgs;
           modules = [
             ./home/${username}/default.nix
           ];
+          extraSpecialArgs = {
+            inherit pkgs-unstable;
+            inherit inputs;
+          };
+
           # La sección `home` no es necesaria; eliminada para evitar el error
         };
       };

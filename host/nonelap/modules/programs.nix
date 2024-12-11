@@ -14,6 +14,10 @@
 
   programs = {
 
+	neovim = {
+		enable=true;
+	};
+
     hyprland = {
       enable = true;
 
